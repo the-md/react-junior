@@ -9,23 +9,22 @@ const Users = () => {
     });
     setUsers(newUsers);
   };
-  const renderPhrase = (number) => {
-    if (number === 0) {
-      return "Никто с тобой не тусанет";
-    }
-    let n = Math.abs(number);
-    n %= 100;
-    if (n >= 5 && n <= 20) {
-      return number + " человек тусанет с тобой сегодня";
-    }
-    n %= 10;
-    if (n === 1) {
-      return number + " человек тусанет с тобой сегодня";
-    }
-    if (n >= 2 && n <= 4) {
-      return number + " человека тусанут с тобой сегодня";
-    }
-    return number + " человека тусанут с тобой сегодня";
+
+  const renderPhrase = (
+    number,
+    words = [
+      " человек тусанет с тобой сегодня",
+      " человека тусанут с тобой сегодня",
+      " человек тусанет с тобой сегодня",
+    ]
+  ) => {
+    if (number === 0) return "Никто с тобой не тусанет";
+    let num1 = Math.abs(number) % 100;
+    let num2 = num1 % 10;
+    if (num1 > 10 && num1 < 20) return number + words[2];
+    if (num2 > 1 && num2 < 5) return number + words[1];
+    if (num2 == 1) return number + words[0];
+    return number + words[2];
   };
 
   const getBadgeClasses = (color) => "badge m-1 bg-" + color;
