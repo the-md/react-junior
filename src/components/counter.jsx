@@ -14,8 +14,8 @@ const Counter = (props) => {
       <h4>{props.name}</h4>
       <span className={getBadgeClasses()}>{formValue()}</span>
       <button
-        className="btn btn-secondary btn-sm m-2"
         onClick={() => props.onIncrement(props.id)}
+        className="btn btn-secondary btn-sm m-2"
       >
         Increment
       </button>
@@ -26,8 +26,8 @@ const Counter = (props) => {
         Decrement
       </button>
       <button
-        onClick={() => props.onDelete(props.id)}
         className="btn btn-danger btn-sm m-2"
+        onClick={() => props.onDelete(props.id)}
       >
         Delete
       </button>
