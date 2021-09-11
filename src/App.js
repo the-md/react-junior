@@ -11,8 +11,15 @@ function App() {
     });
     setUsers(newUsers);
   };
+
   const handleToggleBookMark = (id) => {
-    console.log(id);
+    const newUsers = users.map((user) => {
+      if (user._id === id) {
+        user.bookmark = user.bookmark != true ? true : false;
+      }
+      return user;
+    });
+    setUsers(newUsers);
   };
   return (
     <div>

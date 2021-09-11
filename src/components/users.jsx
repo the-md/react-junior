@@ -1,7 +1,7 @@
 import React from "react";
 import User from "./user";
 
-const Users = ({ users, onDelete, onToggleBookMark, ...rest }) => {
+const Users = ({ users, onDelete, onToggleBookMark, status, ...rest }) => {
   return (
     <table className="table">
       <thead>

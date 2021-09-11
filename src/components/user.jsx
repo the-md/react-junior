@@ -11,6 +11,7 @@ const User = ({
   rate,
   onDelete,
   onToggleBookMark,
+  bookmark,
 }) => {
   const listItemQualities = (qualities) => {
     return qualities.map((q) => (
@@ -31,7 +32,7 @@ const User = ({
           className="btn btn-outline-dark"
           onClick={() => onToggleBookMark(_id)}
         >
-          <BookMark status={true} />
+          <BookMark status={bookmark} />
         </button>
       </td>
       <td>
