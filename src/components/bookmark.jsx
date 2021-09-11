@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const BookMark = ({ status, ...rest }) => {
   const getBookMarkClasses = (status) => {
@@ -7,6 +8,9 @@ const BookMark = ({ status, ...rest }) => {
     return classes;
   };
   return <i className={getBookMarkClasses(status)}></i>;
+};
+BookMark.propTypes = {
+  status: PropTypes.bool
 };
 
 export default BookMark;
