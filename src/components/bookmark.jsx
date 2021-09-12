@@ -2,12 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const BookMark = ({ status, ...rest }) => {
-  const getBookMarkClasses = (status) => {
-    let classes = "bi bi-";
-    classes += status ? "bookmark-fill" : "bookmark";
-    return classes;
-  };
-  return <i className={getBookMarkClasses(status)}></i>;
+  return (
+    <button {...rest} type="button" className="btn btn-outline-dark">
+      <i className={"bi bi-bookmark" + (status ? "-heart-fill" : "")}></i>
+    </button>
+  );
 };
 BookMark.propTypes = {
   status: PropTypes.bool

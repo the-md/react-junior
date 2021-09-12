@@ -14,27 +14,19 @@ const User = ({
   onToggleBookMark,
   bookmark
 }) => {
-  const listItemQualities = (qualities) => {
-    return qualities.map((q) => (
-      <Qualitie key={q._id} name={q.name} color={q.color} />
-    ));
-  };
-
   return (
     <tr>
       <td>{name}</td>
-      <td>{listItemQualities(qualities)}</td>
+      <td>
+        {qualities.map((qual) => (
+          <Qualitie key={qual._id} {...qual} />
+        ))}
+      </td>
       <td>{profession.name}</td>
       <td>{completedMeetings}</td>
       <td>{rate}/5</td>
       <td>
-        <button
-          type="button"
-          className="btn btn-outline-dark"
-          onClick={() => onToggleBookMark(_id)}
-        >
-          <BookMark status={bookmark} />
-        </button>
+        <BookMark status={bookmark} onClick={() => onToggleBookMark(_id)} />
       </td>
       <td>
         <button
@@ -51,13 +43,13 @@ const User = ({
 User.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  qualities: PropTypes.array.isRequired,
-  profession: PropTypes.array.isRequired,
+  qualities: PropTypes.array,
+  profession: PropTypes.object.isRequired,
   completedMeetings: PropTypes.number.isRequired,
   rate: PropTypes.number.isRequired,
   onDelete: PropTypes.func.isRequired,
   onToggleBookMark: PropTypes.func.isRequired,
-  bookmark: PropTypes.bool.isRequired
+  bookmark: PropTypes.bool
 };
 
 export default User;

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Qualitie = ({ color, name, id }) => {
+const Qualitie = ({ color, name, _id }) => {
   const getBadgeClasses = (color) => "badge m-1 bg-" + color;
   return (
-    <span key={id} className={getBadgeClasses(color)}>
+    <span key={_id} className={getBadgeClasses(color)}>
       {name}
     </span>
   );
@@ -12,7 +12,7 @@ const Qualitie = ({ color, name, id }) => {
 Qualitie.propTypes = {
   color: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  _id: PropTypes.string.isRequired
 };
 
 export default Qualitie;
