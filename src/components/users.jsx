@@ -6,10 +6,11 @@ import PropTypes from "prop-types";
 import GroupList from "./groupList";
 import api from "../api";
 import SearchStatus from "./searchStatus";
+import _ from "lodash";
 
 const Users = ({ users: allUsers, ...rest }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [professions, setProfessions] = useState(api.professions.fetchAll());
+  const [professions, setProfessions] = useState();
   const [selectedProf, setSelectedProf] = useState();
 
   const pageSize = 4;
@@ -22,14 +23,15 @@ const Users = ({ users: allUsers, ...rest }) => {
     setCurrentPage(1);
   }, [selectedProf]);
 
-  const handlerofessionSelect = (item) => {
+  const handleprofessionSelect = (item) => {
     setSelectedProf(item);
   };
   const handlePageChange = (pageIndex) => {
     setCurrentPage(pageIndex);
   };
+
   const filteredUsers = selectedProf
-    ? allUsers.filter((user) => user.profession === selectedProf)
+    ? allUsers.filter((user) => _.isEqual(user.profession, selectedProf))
     : allUsers;
   const count = filteredUsers.length;
   const users = paginate(filteredUsers, currentPage, pageSize);
@@ -45,7 +47,7 @@ const Users = ({ users: allUsers, ...rest }) => {
           <GroupList
             selectedItem={selectedProf}
             items={professions}
-            onItemSelect={handlerofessionSelect}
+            onItemSelect={handleprofessionSelect}
           />
           <button className="btn btn-secondary mt-2" onClick={clearFilter}>
             Очистить
