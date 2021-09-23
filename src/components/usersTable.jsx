@@ -15,7 +15,7 @@ const UsersTable = ({
 }) => {
   const columns = {
     name: { path: "name", name: "Имя" },
-    qualities: { name: "Имя" },
+    qualities: { name: "Качества" },
     professions: { path: "profession.name", name: "Профессия" },
     completedMeetings: { path: "completedMeetings", name: "Встретился, раз" },
     rate: { path: "rate", name: "Оценка" },
@@ -43,7 +43,7 @@ const UsersTable = ({
   };
   return (
     <table className="table">
-      <TableHeader {...{ columns, onSort, selectedSort }} />
+      <TableHeader {...{ onSort, columns, selectedSort }} />
       <TableBody {...{ columns, data: users }} />
     </table>
   );
