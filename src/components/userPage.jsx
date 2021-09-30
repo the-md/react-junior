@@ -14,10 +14,9 @@ const UserPage = ({ id }) => {
 
   const history = useHistory();
   const handleAllUsers = () => {
-    history.replace("/users");
+    history.push("/users");
   };
   if (user) {
-    console.log(user);
     return (
       <>
         <h1>{user.name}</h1>
