@@ -14,7 +14,6 @@ const UsersTable = ({
   ...rest
 }) => {
   const columns = {
-    // name: { path: "name", name: "Имя" },
     name: {
       path: "name",
       name: "Имя",
