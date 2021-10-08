@@ -13,6 +13,7 @@ const UsersList = () => {
   const [professions, setProfessions] = useState();
   const [selectedProf, setSelectedProf] = useState();
   const [sortBy, setSortBy] = useState({ iter: "name", order: "asc" });
+  const [search, setSearch] = useState("");
 
   const [users, setUsers] = useState();
   useEffect(() => {
@@ -51,6 +52,7 @@ const UsersList = () => {
   }, [selectedProf]);
 
   const handleprofessionSelect = (item) => {
+    setSearch("");
     setSelectedProf(item);
   };
   const handlePageChange = (pageIndex) => {
@@ -59,17 +61,27 @@ const UsersList = () => {
   const handleSort = (item) => {
     setSortBy(item);
   };
+  const handleSearch = ({ target }) => {
+    setSelectedProf();
+    setSearch(target.value);
+  };
 
   if (users) {
-    const filteredUsers = selectedProf
+    let filteredUsers = selectedProf
       ? users.filter((user) => _.isEqual(user.profession, selectedProf))
       : users;
+    if (search) {
+      filteredUsers = users.filter(
+        (user) => user.name.toLowerCase().indexOf(search.toLowerCase()) >= 0
+      );
+    }
 
     const count = filteredUsers.length;
     const sortedUsers = _.orderBy(filteredUsers, [sortBy.path], [sortBy.order]);
     const usersCrop = paginate(sortedUsers, currentPage, pageSize);
 
     const clearFilter = () => {
+      setSearch("");
       setSelectedProf();
     };
 
@@ -89,6 +101,14 @@ const UsersList = () => {
         )}
         <div className="d-flex flex-column">
           <SearchStatus length={count} />
+          <div>
+            <input
+              type="text"
+              name="search"
+              value={search}
+              onChange={handleSearch}
+            />
+          </div>
           {count > 0 && (
             <UsersTable
               users={usersCrop}
