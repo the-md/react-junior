@@ -13,7 +13,7 @@ const SelectField = ({
     onChange({ name: target.name, value: target.value });
   };
   const getInputValid = () => {
-    return "form-select" + (error ? " is-invalid" : " is-valid");
+    return "form-select" + (error ? " is-invalid" : "");
   };
   let optionsArray = options;
   if (!Array.isArray(options) && typeof options === "object") {

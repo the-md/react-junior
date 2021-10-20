@@ -13,8 +13,8 @@ const UserPage = ({ id }) => {
   }, []);
 
   const history = useHistory();
-  const handleAllUsers = () => {
-    history.push("/users");
+  const handleEdit = () => {
+    history.push(`/users/${id}/edit`);
   };
   if (user) {
     return (
@@ -28,10 +28,10 @@ const UserPage = ({ id }) => {
         <h2>rate: {user.rate}</h2>
         <button
           onClick={() => {
-            handleAllUsers();
+            handleEdit();
           }}
         >
-          Все пользователи
+          Изменить
         </button>
       </>
     );

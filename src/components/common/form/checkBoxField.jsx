@@ -6,7 +6,7 @@ const CheckBoxField = ({ name, value, onChange, children, error }) => {
     onChange({ name: name, value: !value });
   };
   const getInputValid = () => {
-    return "form-check-input" + (error ? " is-invalid" : " is-valid");
+    return "form-check-input" + (error ? " is-invalid" : "");
   };
   return (
     <div className="mb-4">

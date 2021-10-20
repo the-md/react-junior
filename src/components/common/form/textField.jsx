@@ -8,7 +8,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     onChange({ name: target.name, value: target.value });
   };
   const getInputValid = () => {
-    return "form-control" + (error ? " is-invalid" : " is-valid");
+    return "form-control" + (error ? " is-invalid" : "");
   };
   const toggleShowPassword = () => {
     setShowPassword((prevState) => !prevState);
