@@ -94,9 +94,24 @@ const UserPageEdit = () => {
     history.push(`/users/${userId}`);
   };
 
+  const handleBack = () => {
+    history.push(`/users/${userId}`);
+  };
+
   return (
     <>
       <div className="container mt-5">
+        <div className="d-flex">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => {
+              handleBack();
+            }}
+          >
+            <i className="bi bi-backspace"></i> Назад
+          </button>
+        </div>
         <div className="row">
           <div className="col-md-6 offset-md-3 shadow p-4">
             {isLoading ? (

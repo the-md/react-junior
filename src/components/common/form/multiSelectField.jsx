@@ -11,16 +11,10 @@ const MultiSelectField = ({ options, name, label, onChange, defaultValue }) => {
     }));
   }
 
-  console.log("defaultValue1", defaultValue);
-  // const defaultValueArray = {
-  //   label: "Странный",
-  //   value: "67rdca3eeb7f6fgeed471100"
-  // };
   const defaultValueArray = defaultValue.map((item) => ({
     label: item.name,
     value: item._id
   }));
-  console.log("defaultValue2", defaultValue);
 
   const handleChange = (value) => {
     onChange({ name: name, value });

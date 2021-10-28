@@ -14,12 +14,14 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "multiline-ternary": "off",
-    indent: ["error", 2, { SwitchCase: 1 }],
+    indent: ["error", 2, { SwitchCase: 1, offsetTernaryExpressions: true }],
     semi: [2, "always"],
     "space-before-function-paren": [
       "error",
       { anonymous: "always", named: "never" }
     ],
+    "no-nested-ternary": "off",
+    camelcase: "off",
     quotes: ["error", "double", { allowTemplateLiterals: true }],
     "comma-dangle": ["error", "never"]
   }
