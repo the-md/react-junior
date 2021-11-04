@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SelectField = ({
+const SelectFieldUsers = ({
     label,
     value,
     onChange,
@@ -15,14 +15,18 @@ const SelectField = ({
     const getInputValid = () => {
         return "form-select" + (error ? " is-invalid" : "");
     };
-    let optionsArray = options;
-    if (!Array.isArray(options) && typeof options === "object") {
-        optionsArray = Object.keys(options).map((optionName) => ({
-            name: options[optionName].name,
-            value: options[optionName]._id
-        }));
-    }
-    console.log(optionsArray);
+    // let optionsArray = options;
+    // if (!Array.isArray(options) && typeof options === "object") {
+    //     optionsArray = Object.keys(options).map((optionName) => ({
+    //         name: options[optionName].name,
+    //         value: options[optionName]._id
+    //     }));
+    // }
+
+    const optionsArray = options.map((optionName) => ({
+        name: optionName.name,
+        value: optionName._id
+    }));
 
     return (
         <div className="mb-4">
@@ -32,7 +36,7 @@ const SelectField = ({
             <select
                 className={getInputValid()}
                 id="validationCustom04"
-                name="profession"
+                name="user"
                 value={value}
                 onChange={handleChange}
             >
@@ -50,7 +54,7 @@ const SelectField = ({
         </div>
     );
 };
-SelectField.propTypes = {
+SelectFieldUsers.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
@@ -59,4 +63,4 @@ SelectField.propTypes = {
     error: PropTypes.string
 };
 
-export default SelectField;
+export default SelectFieldUsers;

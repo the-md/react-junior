@@ -6,17 +6,17 @@ import Users from "./layouts/users";
 import NavBar from "./components/ui/navBar";
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <Switch>
-        <Route path="/users/:userId?/:edit?" exact component={Users} />
-        <Route path="/login/:type?" component={Login} />
-        <Route path="/" exact component={Main} />
-        <Redirect to="/" />
-      </Switch>
-    </div>
-  );
+    return (
+        <div className="App">
+            <NavBar />
+            <Switch>
+                <Route path="/users/:userId?/:edit?" exact component={Users} />
+                <Route path="/login/:type?" component={Login} />
+                <Route path="/" exact component={Main} />
+                <Redirect to="/" />
+            </Switch>
+        </div>
+    );
 }
 
 export default App;

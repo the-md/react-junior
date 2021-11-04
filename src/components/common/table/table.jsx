@@ -4,24 +4,24 @@ import TableBody from "./tableBody";
 import PropTypes from "prop-types";
 
 const Table = ({ onSort, columns, selectedSort, data, children }) => {
-  return (
-    <table className="table">
-      {children || (
-        <>
-          <TableHeader {...{ onSort, columns, selectedSort }} />
-          <TableBody {...{ columns, data }} />
-        </>
-      )}
-    </table>
-  );
+    return (
+        <table className="table">
+            {children || (
+                <>
+                    <TableHeader {...{ onSort, columns, selectedSort }} />
+                    <TableBody {...{ columns, data }} />
+                </>
+            )}
+        </table>
+    );
 };
 
 Table.propTypes = {
-  onSort: PropTypes.func,
-  selectedSort: PropTypes.object,
-  columns: PropTypes.object,
-  data: PropTypes.array,
-  children: PropTypes.array
+    onSort: PropTypes.func,
+    selectedSort: PropTypes.object,
+    columns: PropTypes.object,
+    data: PropTypes.array,
+    children: PropTypes.array
 };
 
 export default Table;
